@@ -16,14 +16,42 @@ const SignUp = () => {
         placeholder="Enter your Email"
         value={email}
         onChange={(event) => setEmail(event.currentTarget.value)}
-      />
+      /><br></br><br></br>
       <Input
         placeholder="Password"
         type="password"
         value={password}
         onChange={(event) => setpassword(event.currentTarget.value)}
-      />
-      <Button onClick={() => signup()}>Sign Up</Button>
+      /><br></br><br></br>
+      <Button onClick={() => signup(email,password, email)}>Sign Up</Button>
+      <br></br><br></br>
+    </Box>
+  );
+};
+
+
+// Login with email-password
+
+const Login = () => {
+  const { login } = useMoralis();
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
+
+  return (
+    <Box>
+      <Input
+        placeholder="Enter your Email"
+        value={email}
+        onChange={(event) => setEmail(event.currentTarget.value)}
+      /><br></br><br></br>
+      <Input
+        placeholder="Password"
+        type="password"
+        value={password}
+        onChange={(event) => setpassword(event.currentTarget.value)}
+      /><br></br><br></br>
+      <Button onClick={() => login(email,password)}>Login</Button>
+      <br></br><br></br>
     </Box>
   );
 };
@@ -50,6 +78,7 @@ function App() {
       </Button> */}
 
       <SignUp />
+      <Login />
     </Container>
   );
 }
